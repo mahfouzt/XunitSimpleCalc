@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DevExpress.Xpf.Editors;
 
 namespace SimpleCalc
 {
@@ -23,6 +23,12 @@ namespace SimpleCalc
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SimpleCalcController c = new SimpleCalcController();
+            var oper = ((ListBoxEditItem) list.SelectedItem).Content.ToString();
+            txtResult.Text = c.Calculate(txtNumber1.Text, txtNumber2.Text, oper);
         }
     }
 }

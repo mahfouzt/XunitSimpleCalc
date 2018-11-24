@@ -8,7 +8,8 @@ namespace SimpleCalc
         {
             Validator validator = new Validator();
             Calculator calculator = new Calculator();
-            
+            number1 = number1.Trim();
+            number2 = number1.Trim();
 
             if (!validator.IsValidInteger(number1))
             {

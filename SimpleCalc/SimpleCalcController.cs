@@ -8,36 +8,38 @@ namespace SimpleCalc
         {
             Validator validator = new Validator();
             Calculator calculator = new Calculator();
-
-            if (!validator.IsValidNumber(number1))
+            
+            if (!validator.IsValidInteger(number1))
             {
                 return "Number 1 is not integer";
             }
 
-            if (!validator.IsValidNumber(number2))
+            if (!validator.IsValidInteger(number2))
             {
                 return "Number 2 is not integer";
             }
 
-            if (oper == "Divide" && Convert.ToInt32(number2) == 0)
+            if (validator.IsDivideByZero(number1,number2,oper))
             {
                 return "Divide By Zero";
             }
 
             int result;
+            calculator.Number1 = Convert.ToInt32(number1);
+            calculator.Number2 = Convert.ToInt32(number2);
             switch (oper)
             {
                 case "Plus":
-                    result = calculator.Add(Convert.ToInt32(number1) , Convert.ToInt32(number2));
+                    result = calculator.Add();
                     return result.ToString();
                 case "Minus":
-                    result = calculator.Subtract(Convert.ToInt32(number1), Convert.ToInt32(number2));
+                    result = calculator.Subtract();
                     return result.ToString();
                 case "Times":
-                    result = calculator.Multiply(Convert.ToInt32(number1), Convert.ToInt32(number2));
+                    result = calculator.Multiply();
                     return result.ToString();
                 case "Divide":
-                    result = calculator.Divide(Convert.ToInt32(number1), Convert.ToInt32(number2));
+                    result = calculator.Divide();
                     return result.ToString();
                 default:
                     return "";

@@ -2,24 +2,28 @@
 {
     public class Calculator
     {
-        public int Add(int value1, int value2)
+        public int Number1 { get; set; }
+        public int Number2 { get; set; }
+
+        public int Add()
         {
-            return value1 + value2;
+            var result = Number1 + Number2;
+            return result;
         }
 
-        public int Subtract(int value1, int value2)
+        public int Subtract()
         {
-            return value1 - value2;
+            return Number1 - Number2;
         }
 
-        public int Multiply(int value1, int value2)
+        public int Multiply()
         {
-            return value1 * value2;
+            return Number1 * Number2;
         }
 
-        public int Divide(int value1, int value2)
+        public int Divide()
         {
-            return value1 / value2;
+            return Number1 / Number2;
         }
     }
 }
